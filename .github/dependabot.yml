@@ -1,0 +1,46 @@
+version: 2
+registries:
+  git-github-com:
+    type: git
+    url: https://github.com
+    username: saminfante
+    password: "${{secrets.GIT_GITHUB_COM_PASSWORD}}"
+
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:49"
+    timezone: US/Central
+  open-pull-requests-limit: 99
+  ignore:
+  - dependency-name: org.springframework.boot:spring-boot-maven-plugin
+    versions:
+    - 2.4.2
+    - 2.4.3
+    - 2.4.4
+  - dependency-name: org.springframework.boot:spring-boot-dependencies
+    versions:
+    - 2.4.2
+    - 2.4.3
+    - 2.4.4
+  - dependency-name: com.hazelcast:hazelcast:tests
+    versions:
+    - 4.1.1
+    - 4.1.2
+  - dependency-name: org.springframework.cloud:spring-cloud-dependencies
+    versions:
+    - Hoxton.SR10
+    - Hoxton.SR9
+  - dependency-name: pl.project13.maven:git-commit-id-plugin
+    versions:
+    - 4.0.3
+  - dependency-name: org.codehaus.mojo:flatten-maven-plugin
+    versions:
+    - 1.2.5
+  - dependency-name: org.apache.maven.plugins:maven-checkstyle-plugin
+    versions:
+    - 3.1.1
+  registries:
+  - git-github-com
